@@ -1,0 +1,104 @@
+<h2>Edit account</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :username %><br/>
+    <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+
+  --optional fields--
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <%= f.fields_for :phone_numbers do |phone| %>
+    <%= phone.label :phone_number %>
+    <%= phone.telephone_field :phone_number %>
+
+    <% options = options_from_collection_for_select(PhoneType.all, 'phone_type_id', 'name', selected: phone.object.phone_type_id) %>
+    <%= phone.select :phone_type_id, options, include_blank: "type" %>
+  <% end %>
+
+  <div class="field">
+    <% options = options_from_collection_for_select(Prefix.all, 'prefix_id', 'name', selected: f.object.prefix_id) %>
+    <%= f.select :prefix_id, options, include_blank: "title" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_name %><br/>
+    <%= f.text_field :first_name, autocomplete: "first name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :middle_name %><br/>
+    <%= f.text_field :middle_name, autocomplete: "middle name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br/>
+    <%= f.text_field :last_name, autocomplete: "last name" %>
+  </div>
+
+  <div class="field">
+    <% options = options_from_collection_for_select(Suffix.all, 'suffix_id', 'name', selected: f.object.suffix_id) %>
+    <%= f.select :suffix_id, options, include_blank: "suffix" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nickname %><br/>
+    <%= f.text_field :nickname, autocomplete: "nickname" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_of_birth %><br/>
+    <%= f.date_select :date_of_birth, order: [:month, :day, :year],
+                                      start_year: Date.today.year,
+                                      end_year: 1905,
+                                      use_short_month: true,
+                                      prompt: true %>
+  </div>
+
+  <div class="field">
+    <%= f.radio_button :gender, "0" %>
+    <%= f.label :gender, "Male"  %>
+    <%= f.radio_button :gender, "1" %>
+    <%= f.label :gender, "Female" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "Back", :back %>

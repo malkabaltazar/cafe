@@ -1,0 +1,20 @@
+<nav>
+  <ul>
+    <li>Menu</li>
+    <li>Order online</li>
+    <% if entity_signed_in? %>
+    <li class="toggle"><%= current_entity.username %> &#9662;
+      <ul class="dropdown">
+        <li><%= link_to "edit account", edit_registration_path(current_entity) %></li>
+        <li><%= link_to "sign out", destroy_session_path(current_entity), method: :delete %></li>
+      </lu>
+    </li>
+    <% else %>
+    <li class="toggle">Log in &#9662;
+      <div class="dropdown">
+        <%= render "entity/sessions/new" %>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+</nav>

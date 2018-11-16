@@ -1,0 +1,81 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+1st_lt:
+  prefix_id: 1
+  name: 1st Lt
+Adm:
+  prefix_id: 2
+  name: Adm
+Atty:
+  prefix_id: 3
+  name: Atty
+Brother:
+  prefix_id: 4
+  name: Brother
+Capt:
+  prefix_id: 5
+  name: Capt
+Chief:
+  prefix_id: 6
+  name: Chief
+Cmdr:
+  prefix_id: 7
+  name: Cmdr
+Col:
+  prefix_id: 8
+  name: Col
+Dean:
+  prefix_id: 9
+  name: Dean
+Dr:
+  prefix_id: 10
+  name: Dr
+Elder:
+  prefix_id: 11
+  name: Elder
+Father:
+  prefix_id: 12
+  name: Father
+Gen:
+  prefix_id: 13
+  name: Gen
+Gov:
+  prefix_id: 14
+  name: Gov
+Hon:
+  prefix_id: 15
+  name: Hon
+Lt_Col:
+  prefix_id: 16
+  name: Lt Col
+Maj:
+  prefix_id: 17
+  name: Maj
+MSgt:
+  prefix_id: 18
+  name: MSgt
+Mr:
+  prefix_id: 19
+  name: Mr
+Mrs:
+  prefix_id: 20
+  name: Mrs
+Ms:
+  prefix_id: 21
+  name: Ms
+Prof:
+  prefix_id: 22
+  name: Prof
+Rabbi:
+  prefix_id: 23
+  name: Rabbi
+Rev:
+  prefix_id: 24
+  name: Rev
+Sister:
+  prefix_id: 25
+  name: sister

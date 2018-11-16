@@ -1,0 +1,20 @@
+nav > ul {
+  display: flex;
+  li {
+    list-style: none;
+    position: relative;
+  }
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+.toggle:hover .dropdown {
+  display: block;
+}
